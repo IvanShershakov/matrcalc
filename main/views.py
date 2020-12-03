@@ -53,10 +53,11 @@ def set_size(request):
     if request.method == 'GET':
 
         if request.GET.get("one_matr"):
-            return HttpResponse('А рабитает'+'1')
+            pass
         elif request.POST.get("two_matr"):  # You can use else in here too if there is only 2 submit types.
-            return HttpResponse('А рабитает'+'2')
-
+            pass
     return render(request, template, context)
 
 
+def input_data():
+    return None

@@ -16,6 +16,7 @@
           <h1 class="display-4">Установите размеры матрицы</h1>
           <hr class="my-4">
           <form action="/input_data" method="post">
+              {% csrf_token %}
               A<input type="number" name="size_col_A" id="cols" min="1" max="25" placeholder="3">
               <input type="number" name="size_row_A" id="rows"  min="1" max="25" placeholder="3">
               <button type="submit" class="btn btn-primary btn-sm">Установить</button>

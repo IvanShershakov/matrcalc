@@ -1,0 +1,46 @@
+{% extends 'main/calc.html' %}
+{% block title %}Инструкция{% endblock %}
+{% block content %}
+    <h1 class="mt-4">Инструкция</h1>
+
+    <select class="first-matrix" id="first-matrix-rows">
+        <option value="1" {% if row_size == 1 %}selected{% endif %}>1</option>
+        <option value="2" {% if row_size == 2 %}selected{% endif %}>2</option>
+        <option value="3" {% if row_size == 3 %}selected{% endif %}>3</option>
+        <option value="4" {% if row_size == 4 %}selected{% endif %}>4</option>
+        <option value="5" {% if row_size == 5 %}selected{% endif %}>5</option>
+        <option value="6" {% if row_size == 6 %}selected{% endif %}>6</option>
+        <option value="7" {% if row_size == 7 %}selected{% endif %}>7</option>
+        <option value="8" {% if row_size == 8 %}selected{% endif %}>8</option>
+        <option value="9" {% if row_size == 9 %}selected{% endif %}>9</option>
+        <option value="10" {% if row_size == 10 %}selected{% endif %}>10</option>
+    </select>
+    <span class="first-matrix">&#215;</span>
+    <select class="first-matrix" id="first-matrix-cols">
+        <option value="1" {% if col_size == 1 %}selected{% endif %}>1</option>
+        <option value="2" {% if col_size == 2 %}selected{% endif %}>2</option>
+        <option value="3" {% if col_size == 3 %}selected{% endif %}>3</option>
+        <option value="4" {% if col_size == 4 %}selected{% endif %}>4</option>
+        <option value="5" {% if col_size == 5 %}selected{% endif %}>5</option>
+        <option value="6" {% if col_size == 6 %}selected{% endif %}>6</option>
+        <option value="7" {% if col_size == 7 %}selected{% endif %}>7</option>
+        <option value="8" {% if col_size == 8 %}selected{% endif %}>8</option>
+        <option value="9" {% if col_size == 9 %}selected{% endif %}>9</option>
+        <option value="10" {% if col_size == 10 %}selected{% endif %}>10</option>
+    </select>
+<br>
+    <table>
+        {% for row in table %}
+            <tr>
+            {% for cell in row %}
+<!--                {% if forloop.first or forloop.parentloop.first %} <td> {% else %} <td> {% endif %}-->
+<!--                {% if forloop.first or forloop.parentloop.first %} </td> {% else %} </td> {% endif %}-->
+<!--                {% if   col_size %}-->
+                    <td><input type="text" placeholder="0" size=10></td>
+
+<!--                {% endif %}-->
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

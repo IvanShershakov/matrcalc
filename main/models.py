@@ -1,12 +1,17 @@
-from django.db import models
-
-# class Matrix_A_size(models.Model):
-#     ROW_CHOICES = (
-#         ('1', 1),
-#         ('2', 2),
-#         ('3', 3),
-#         ('4', 4),
-#         ('5', 5),
-#         ('6', 6),
+# from django.db import models, DecimalField
+# from django.contrib.postgres.fields import ArrayField
+#
+#
+# class Matrix(models.Model):
+#     row = DecimalField('Строки', default=3)
+#     col = DecimalField('Столбцы', default=3)
+#     data = ArrayField(
+#         ArrayField(
+#             models.DecimalField('field'),
+#             size=row,
+#         ),
+#         size=col,
 #     )
-#     title = models.
+#
+#     def __str__(self):
+#         return (self.row, self.col)

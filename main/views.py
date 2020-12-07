@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+
 def index(request):
     return render(request, 'main/sample.html')
+
 
 def calc(request):
     context = {
@@ -49,15 +51,27 @@ def set_size(request):
 
     template = 'main/set_size.html'
 
-
     if request.method == 'GET':
+        if request.GET.get("matr"):
+            context['mode'] = request.GET.get('matr')
 
-        if request.GET.get("one_matr"):
-            pass
-        elif request.POST.get("two_matr"):  # You can use else in here too if there is only 2 submit types.
-            pass
     return render(request, template, context)
 
 
-def input_data():
-    return None
+def input_data(request):
+    template = 'main/input_data.html'
+
+    if request.method == 'GET':
+        if request.GET.get("size_col_A") and request.GET.get("size_row_A"):
+            row_size = int(request.GET.get("size_row_A"))
+            col_size = int(request.GET.get("size_col_A"))
+            table = [[i+(j*row_size) for i in range(row_size)] for j in range(col_size)]
+    # if request.method == 'GET':
+
+    context = {
+        'table': table,
+        'row': row_size,
+        'col_size': col_size,
+    }
+    return render(request, template, context)
+

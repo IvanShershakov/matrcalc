@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/calc.html' %}
+{% block title %}Инструкция{% endblock %}
+{% block content %}
+<br>
+    <div class="jumbotron">
+        <h1 class="display-4">Заполните значения</h1>
 
-</body>
-</html>
+        <form action="">
+            <table>
+                {% for row in table %}
+                <tr>
+                    {% for cell in row %}
+                        <td><input type="text" placeholder="0" size=10 name="{{cell}}" value="0"></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            <select class="first-matrix" id="first-matrix-rows">
+                <option value="1" name="" >Транспонировать</option>
+                <option value="2" >Вычислить определитель</option>
+                <option value="3" >Найти ранг</option>
+                <option value="6" >Вычислить обратную матрицу</option>
+                <option value="7" >Привести к треугольному и ступенчатому виду</option>
+                <option value="8" >Найти LU-разложение</option>
+            </select>
+            <button type="submit" class="btn btn-primary btn-lg" name="submit" value="row{{row_size}}col{{col_size}}">Вычислить</button>
+        </form>
+   </div>
+{% endblock %}
